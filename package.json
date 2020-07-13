@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "run-prod-test": "ng build --prod && http-server -p 8080 -c-1 dist/lean-in-de-zorg",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -18,8 +19,11 @@
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/pwa": "^0.1000.2",
     "@angular/router": "~8.2.14",
+    "@angular/service-worker": "~8.2.14",
     "bootstrap": "^5.0.0-alpha1",
+    "http-server": "^0.12.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
