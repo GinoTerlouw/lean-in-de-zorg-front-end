@@ -6,11 +6,14 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import {ApiService} from './services/api.service';
+import {HomeComponent} from '../home/home.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HomeComponent
+  ],
 
   exports: [
   ],

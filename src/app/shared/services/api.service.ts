@@ -29,7 +29,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   private static readonly baseUrl = environment.localhostURL;
-  private static readonly prefix = '/SAA';
+  private static readonly prefix = '/API';
 
   /* GET method to retrieve data from the backend. An url is generated through the given endPoint.
   *
@@ -57,7 +57,7 @@ export class ApiService {
   * this.api.post({
   *  endPoint: `${this.PREFIX}/login`
   *  body: new HttpParams()
-  *    .set('username', 'Jesse')
+  *    .set('username', 'matthijs')
   *    .set('password', '123')
   * });
   *
@@ -109,7 +109,7 @@ export class ApiService {
   * this.api.put({
   *  endPoint: `${this.PREFIX}/updateUser`,
   *  body: new HttpParams()
-  *    .set('username', 'Jesse')
+  *    .set('username', 'matthijs')
   *    .set('password', '123')
   * });
   *

@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./../userFormStyle.css']
+  styleUrls: ['../userFormStyle.css']
 })
 export class LoginComponent implements OnInit {
   @ViewChild('formGroup', {static: false}) formGroup: NgForm;
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.currentUser !== null) {
-      // this.router.navigate(['home']);
+      this.router.navigate(['home']);
     }
   }
 

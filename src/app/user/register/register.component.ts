@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./../userFormStyle.css']
+  styleUrls: ['../userFormStyle.css']
 })
 export class RegisterComponent implements OnInit {
   @ViewChild('formGroup', {static: false}) formGroup: NgForm;
