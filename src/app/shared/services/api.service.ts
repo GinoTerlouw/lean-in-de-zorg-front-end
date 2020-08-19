@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {environment} from '../../../environments/environment';
 
 /* This is the exact same interface that HttpClient uses. This way, this service wil GET, POST, PUT and DELETE
@@ -74,7 +74,7 @@ export class ApiService {
     }
 
     try {
-      return this.http.post(this.generateUrl(options.endPoint), options.body, { headers });
+      return of(this.http.post(this.generateUrl(options.endPoint), options.body, { headers }));
     } catch (error) {
       console.error(error);
     }
