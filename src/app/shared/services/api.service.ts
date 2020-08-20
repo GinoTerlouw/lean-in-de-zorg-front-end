@@ -74,7 +74,7 @@ export class ApiService {
     }
 
     try {
-      return of(this.http.post(this.generateUrl(options.endPoint), options.body, { headers }));
+      return this.http.post(this.generateUrl(options.endPoint), options.body, { headers });
     } catch (error) {
       console.error(error);
     }

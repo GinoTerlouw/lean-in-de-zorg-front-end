@@ -1,0 +1,28 @@
+<table class="bordered">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>UUID</th>
+    <th>Email</th>
+    <th>Name</th>
+    <th>Change privilege</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.id}}</td>
+    <td>{{user.uuid}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.name}}</td>
+    <td>
+      <select (change)="changeUserPrivilege($event.target, user)">
+        <option value="0" [selected]="user.privilege === 0">Normal User</option>
+        <option value="1" [selected]="user.privilege === 1">Admin</option>
+        <option value="2" [selected]="user.privilege === 2">Super Admin</option>
+      </select>
+      <label>Materialize Select</label>
+    </td>
+  </tr>
+  </tbody>
+</table>
