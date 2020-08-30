@@ -1,28 +1,42 @@
-<table class="bordered">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>UUID</th>
-    <th>Email</th>
-    <th>Name</th>
-    <th>Change privilege</th>
-  </tr>
-  </thead>
+<!--<table class="bordered">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Email</th>-->
+<!--    <th>Name</th>-->
+<!--    <th>General practice</th>-->
+<!--    <th>Change privilege</th>-->
+<!--    <th>Change position</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
 
-  <tbody>
-  <tr *ngFor="let user of users">
-    <td>{{user.id}}</td>
-    <td>{{user.uuid}}</td>
-    <td>{{user.email}}</td>
-    <td>{{user.name}}</td>
-    <td>
-      <select (change)="changeUserPrivilege($event.target, user)">
-        <option value="0" [selected]="user.privilege === 0">Normal User</option>
-        <option value="1" [selected]="user.privilege === 1">Admin</option>
-        <option value="2" [selected]="user.privilege === 2">Super Admin</option>
-      </select>
-      <label>Materialize Select</label>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<!--  <tbody>-->
+<!--  <tr *ngFor="let user of users">-->
+<!--    <td>{{user.email}}</td>-->
+<!--    <td>{{user.name}}</td>-->
+<!--    <td>WIP</td>-->
+<!--    <td>-->
+<!--      <select (change)="changeUserPrivilege($event.target, user)">-->
+<!--        <option value="0" [selected]="user.privilege === 0">Normal User</option>-->
+<!--        <option value="1" [selected]="user.privilege === 1">Admin</option>-->
+<!--        <option value="2" [selected]="user.privilege === 2">Super Admin</option>-->
+<!--      </select>-->
+<!--      <label>Materialize Select</label>-->
+<!--    </td>-->
+<!--    <td>-->
+<!--      <select (change)="changeUserPosition($event.target, user)">-->
+<!--        <option value="0" [selected]="user.position === 0">Unassigned</option>-->
+<!--        <option value="1" [selected]="user.position === 1">Doctor</option>-->
+<!--        <option value="2" [selected]="user.position === 2">Assistent</option>-->
+<!--      </select>-->
+<!--      <label>Materialize Select</label>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+<!--<mat-table [users]="users">-->
+<!--  <ng-container *ngFor="let col of displayColumns" matColumnDef="{{col}}">-->
+<!--    <th mat-header-cell *matHeaderCellDef> {{col}}</th>-->
+<!--    <td mat-cell *matCellDef="let element"> {{element[col]}}</td>-->
+<!--  </ng-container>-->
+<!--</mat-table>-->

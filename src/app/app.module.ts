@@ -13,11 +13,18 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ResponseInterceptor} from './shared/response.interceptor';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthenticationInterceptor} from './shared/authentication.interceptor';
+import { AccountListComponent } from './account-list/account-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    AccountListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,12 @@ import {AuthenticationInterceptor} from './shared/authentication.interceptor';
     SharedModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    UserModule
+    UserModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatSelectModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true},

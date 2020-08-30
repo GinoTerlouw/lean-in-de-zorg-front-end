@@ -7,25 +7,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {ApiService} from './services/api.service';
 import {HomeComponent} from '../home/home.component';
-import {AccountsListComponent} from '../accounts-list/accounts-list.component';
 import {AccountManagementService} from './services/account-management.service';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    AccountsListComponent
+    HomeComponent
   ],
 
   exports: [
   ],
 
-  imports: [
-    RouterModule.forRoot(sharedRoutes),
-    CommonModule,
-    HttpClientModule
-  ],
+    imports: [
+        RouterModule.forRoot(sharedRoutes),
+        CommonModule,
+        HttpClientModule
+    ],
 
   entryComponents: [
 

@@ -61,6 +61,18 @@ export class UserService {
     }
   }
 
+  isDoctor(){
+    if (this.currentUser !== null) {
+      return this.currentUser.position == 1;
+    }
+  }
+
+  isAssitent() {
+    if (this.currentUser !== null) {
+      return this.currentUser.position == 2;
+    }
+  }
+
   isLoggedIn() {
     return this.currentUser !== null && localStorage.getItem('user') !== null;
   }
