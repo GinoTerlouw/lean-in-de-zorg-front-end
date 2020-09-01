@@ -21,8 +21,11 @@ export class AccountListDataSource extends DataSource<User> {
   sort: MatSort;
 
 
-  constructor() {
+  constructor(users: User[], paginator: MatPaginator, sort: MatSort) {
     super();
+    this.data = users;
+    this.paginator = paginator;
+    this.sort = sort;
   }
 
   /**

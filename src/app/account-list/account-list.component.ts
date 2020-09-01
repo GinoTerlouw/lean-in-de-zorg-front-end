@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { AccountListDataSource, AccountListItem } from './account-list-datasource';
+import { AccountListDataSource } from './account-list-datasource';
 import {AccountManagementService} from '../shared/services/account-management.service';
 import {User} from '../shared/user.model';
 import {ApiService} from '../shared/services/api.service';
@@ -15,9 +15,10 @@ import {ApiService} from '../shared/services/api.service';
 export class AccountListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatTable, {static: true}) table: MatTable<AccountListItem>;
+  @ViewChild(MatTable, {static: true}) table: MatTable<User[]>;
   dataSource: AccountListDataSource;
   data: User[];
+  private userSubscription;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['email', 'name', 'privilege', 'position'];
@@ -26,24 +27,13 @@ export class AccountListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.accountManagementService.setUserObservable();
-    // this.userSubscription = this.accountManagementService.userObservable
-    //   .subscribe((users) => {
-    //     this.data = users.content;
-    //   });
-    // console.log(this.data);
-
-    this.dataSource = new AccountListDataSource();
-    this.getUsers();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.accountManagementService.setUserObservable();
+    this.userSubscription = this.accountManagementService.userObservable
+      .subscribe((users) => {
+        this.dataSource = new AccountListDataSource(users.content, this.paginator, this.sort);
+      });
   }
 
-  getUsers() {
-    this.accountManagementService.getAllAccounts().subscribe((response:any) => {
-      this.dataSource.data = response.content;
-    });
-  }
 
   changeUserPrivilege(target, user) {
     console.log(target.value);

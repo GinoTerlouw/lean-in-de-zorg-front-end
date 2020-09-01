@@ -6,7 +6,6 @@ import { User } from '../shared/user.model';
 import {catchError} from 'rxjs/operators';
 import {error} from 'util';
 
-declare var M: any;
 
 @Injectable({providedIn: 'root'})
 export class UserService {
@@ -29,7 +28,7 @@ export class UserService {
         .set('password', password)
     }, false);
     response.pipe(
-      catchError((error: HttpErrorResponse) => M.toast({html: `${error.error.message}`}))
+      // catchError((error: HttpErrorResponse) => M.toast({html: `${error.error.message}`}))
     ).subscribe((data) => {
       this.currentUser = data.content;
       localStorage.setItem('user', JSON.stringify(this.currentUser));
@@ -51,7 +50,7 @@ export class UserService {
         .set('email', email)
         .set('password', password)
     }, false).pipe(
-      catchError((error) => M.toast({html: `${error.message}`}))
+      // catchError((error) => M.toast({html: `${error.message}`}))
     );
   }
 
